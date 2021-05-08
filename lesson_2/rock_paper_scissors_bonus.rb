@@ -1,20 +1,20 @@
 VALID_CHOICES = %w(rock paper scissors lizard Spock)
 
-RULES = { 'rock': ['scissors', 'lizard'], 
-          'paper': ['rock', 'Spock'], 
-          'scissors': ['paper', 'lizard'], 
-          'Spock': ['rock', 'scissors'], 
+RULES = { 'rock': ['scissors', 'lizard'],
+          'paper': ['rock', 'Spock'],
+          'scissors': ['paper', 'lizard'],
+          'Spock': ['rock', 'scissors'],
           'lizard': ['Spock', 'paper'] }
 
-ABBREVIATIONS = { 'r': 'rock', 
-                  'p': 'paper', 
-                  's': 'scissors', 
-                  'l': 'lizard', 
+ABBREVIATIONS = { 'r': 'rock',
+                  'p': 'paper',
+                  's': 'scissors',
+                  'l': 'lizard',
                   'S': 'Spock' }
 
 def prompt(message)
   puts("=> #{message}")
-end 
+end
 
 def win?(first, second)
   RULES[first.to_sym].include?(second)
@@ -42,17 +42,17 @@ end
 def track_score(scoreboard, winner)
   scoreboard[winner.to_sym] += 1 unless winner.nil?
 end
- 
+
 score = { 'player': 0, 'computer': 0 }
 loop do
   choice = ''
   loop do
     operator_instructions = <<-MSG
-    Choose one of the following: 
-    rock (r) 
-    paper (p) 
-    scissors (s) 
-    lizard (l) 
+    Choose one of the following:
+    rock (r)
+    paper (p)
+    scissors (s)
+    lizard (l)
     Spock (S)
     MSG
     prompt(operator_instructions)
